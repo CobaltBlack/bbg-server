@@ -10,12 +10,14 @@ def hello_world():
     app.logger.info('info visited')
     return 'Hello, World!'
     
-@app.route('/wakeup', methods=['POST'])    
+    
+@app.route('/wakeup', methods=['POST'])
 def wake_up():
     app.logger.info('wakeup called')
     # Call script to perform wakeup
     os.system('~/wakeup &>> /var/log/wake.log')
     return 'OK'
+
 
 if __name__ == "__main__":
     app.run()

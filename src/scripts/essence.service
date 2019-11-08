@@ -1,15 +1,10 @@
 [Unit]
-Description=Personal Server for Personal Purposes
-After=syslog.target network.target
+Description=Essence Server
+After=network.target
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/root/
-ExecStart=/root/web/src/gunicornStart.sh
-Restart=on-failure
-StandardOutput=syslog
-SyslogIdentifier=essence
+ExecStart=/bin/bash /root/web/src/gunicornStart.sh
 
 [Install]
 WantedBy=multi-user.target
